@@ -26,16 +26,16 @@ import os
 from flask_cors import CORS  
 
 
-from utils import (
+from services.utils import (
     bytes_to_pil_image,
     save_image,
     crop_tomato_from_prediction,
     save_annotated_image,
 )
-from classification_service import classify_image
-from segmentation_service import segment_image
-from drawing_service import annotate_image, pil_to_base64
-from database import save_image_record, get_last_images
+from services.classification_service import classify_image
+from services.segmentation_service import segment_image
+from services.drawing_service import annotate_image, pil_to_base64
+from services.database import save_image_record, get_last_images
 from config import UPLOAD_DIR, ANNOTATED_DIR
 
 app = Flask(__name__)

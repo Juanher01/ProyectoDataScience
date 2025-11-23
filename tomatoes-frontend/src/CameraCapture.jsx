@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 /**
  * Componente para usar la cámara del dispositivo.
  * - Abre la cámara con getUserMedia
- * - Muestra el vídeo en vivo
+ * - Muestra el video en vivo
  * - Permite capturar una foto
  * - Devuelve la foto como File al padre mediante onCapture(file)
  */
@@ -68,22 +68,37 @@ const CameraCapture = ({ onCapture, onClose }) => {
 
   return (
     <div className="modal-backdrop">
-      <div className="modal">
+      <div className="modal camera-modal">
         <h2>Tomar foto</h2>
         {error ? (
-          <p style={{ color: "red" }}>{error}</p>
+          <p className="error-text" style={{ marginTop: "0.5rem" }}>
+            {error}
+          </p>
         ) : (
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            style={{ width: "100%", borderRadius: "8px" }}
-          />
+          <div className="camera-video-wrapper">
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              className="camera-video"
+            />
+          </div>
         )}
 
-        <div className="modal-actions">
-          <button onClick={onClose}>Cerrar</button>
-          <button onClick={handleCapture} disabled={!!error}>
+        <div className="modal-actions modal-actions--stacked">
+          <button
+            className="pill-button secondary"
+            type="button"
+            onClick={onClose}
+          >
+            Cerrar
+          </button>
+          <button
+            className="pill-button primary"
+            type="button"
+            onClick={handleCapture}
+            disabled={!!error}
+          >
             Capturar
           </button>
         </div>
