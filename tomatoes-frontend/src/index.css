@@ -1,0 +1,634 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header / navegación ---------- */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid #1f2937;
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  font-size: 1.8rem;
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-tab {
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-tab:hover:not(:disabled) {
+  background: rgba(37, 99, 235, 0.1);
+  color: #e5e7eb;
+}
+
+.nav-tab.active {
+  background: #2563eb;
+  color: white;
+}
+
+.nav-tab:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ---------- Main ---------- */
+
+.app-main {
+  flex: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 2.5rem;
+}
+
+.view-header h2 {
+  margin: 0 0 0.25rem;
+}
+
+.view-header p {
+  margin: 0 0 1.25rem;
+  color: #9ca3af;
+}
+
+/* ---------- Cards, botones ---------- */
+
+.card {
+  background-color: #020617;
+  border-radius: 14px;
+  padding: 1.25rem 1.3rem 1.4rem;
+  border: 1px solid #1f2937;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+.large-card {
+  margin-top: 0.75rem;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.or-label {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.pill-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: background 0.15s, transform 0.05s, box-shadow 0.15s;
+}
+
+.pill-button.primary {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
+}
+
+.pill-button.primary:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.pill-button.secondary {
+  background: #111827;
+  color: #e5e7eb;
+  border: 1px solid #1f2937;
+}
+
+.pill-button.secondary:hover:not(:disabled) {
+  background: #1f2937;
+}
+
+.pill-button.ghost {
+  background: transparent;
+  color: #9ca3af;
+  border: 1px solid #1f2937;
+}
+
+.pill-button.ghost:hover:not(:disabled) {
+  background: #0b1120;
+}
+
+.pill-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  box-shadow: none;
+}
+
+.file-input-label {
+  position: relative;
+  overflow: hidden;
+}
+
+.actions-row {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.actions-row.separate-top {
+  border-top: 1px solid #111827;
+  padding-top: 0.9rem;
+}
+
+/* ---------- Upload / preview ---------- */
+
+.preview {
+  margin-top: 1.1rem;
+}
+
+.preview h3 {
+  margin: 0 0 0.5rem;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 340px;
+  border-radius: 10px;
+  border: 1px solid #111827;
+  object-fit: contain;
+  display: block;
+}
+
+/* ---------- Resultado ---------- */
+
+.result-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(0, 1.4fr);
+  gap: 1.3rem;
+  margin-top: 0.75rem;
+}
+
+.result-image h3 {
+  margin-top: 0;
+}
+
+.annotated-image {
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid #111827;
+  display: block;
+}
+
+.result-summary {
+  margin: 0 0 0.75rem;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #bbf7d0;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  font-size: 0.8rem;
+}
+
+/* ---------- Listado de tomates ---------- */
+
+.tomato-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+}
+
+.tomato-item {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #111827;
+}
+
+.tomato-item:last-child {
+  border-bottom: none;
+}
+
+.tomato-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.tomato-index {
+  font-weight: 500;
+}
+
+.tomato-class {
+  font-size: 0.85rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #111827;
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
+}
+
+.tomato-prob {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* ---------- Historial ---------- */
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.history-card {
+  background: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #111827;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s;
+}
+
+.history-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+  border-color: #2563eb;
+}
+
+.history-thumb {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.history-info {
+  padding: 0.4rem 0.6rem 0.6rem;
+}
+
+.history-title {
+  font-size: 0.8rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-meta {
+  font-size: 0.75rem;
+  margin: 0.2rem 0 0;
+  color: #9ca3af;
+}
+
+/* ---------- Modales ---------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+}
+
+.modal {
+  background: #020617;
+  border-radius: 16px;
+  padding: 1.4rem 1.5rem;
+  width: min(640px, 92vw);
+  max-height: 92vh;
+  overflow-y: auto;
+  border: 1px solid #1f2937;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* ---------- Loader pantalla completa ---------- */
+
+.fullscreen-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: radial-gradient(circle at top, #0f172a, #020617 60%, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-card {
+  background: #020617;
+  padding: 1.8rem 2rem;
+  border-radius: 16px;
+  border: 1px solid #1f2937;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  max-width: 420px;
+}
+
+.loader-card h2 {
+  margin: 1rem 0 0.25rem;
+}
+
+.loader-subtext {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.spinner {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 4px solid rgba(148, 163, 184, 0.3);
+  border-top-color: #3b82f6;
+  margin: 0 auto;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Mensajes ---------- */
+
+.error-text {
+  margin-top: 0.6rem;
+  color: #f87171;
+  font-size: 0.9rem;
+}
+
+/* ---------- Camera modal reutiliza .modal ---------- */
+
+.video-container video {
+  width: 100%;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .nav-tabs {
+    align-self: stretch;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .result-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-image,
+  .annotated-image {
+    max-height: 260px;
+  }
+}
+
+/* ---- Layout más pro de "Nueva imagen" ---- */
+
+.upload-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.upload-left,
+.upload-right {
+  min-width: 0;
+}
+
+.section-title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.section-description {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.tips-list {
+  margin: 0.9rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.tips-list li + li {
+  margin-top: 0.25rem;
+}
+
+/* Marco de vista previa */
+
+.preview-frame {
+  border-radius: 12px;
+  border: 1px dashed #1f2937;
+  padding: 0.75rem;
+  background: radial-gradient(circle at top left, #020617, #020617);
+}
+
+.preview-frame.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+  text-align: center;
+}
+
+.preview-hint {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 260px;
+  border-radius: 8px;
+  border: 1px solid #111827;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.preview-file-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Botón pill pequeño */
+.pill-button.small {
+  padding: 0.3rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .upload-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Logo en círculo */
+.brand-logo-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 20%, #f97373, #b91c1c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(248, 113, 113, 0.4);
+}
+
+.brand-logo {
+  font-size: 1.3rem;
+}
+
+/* Botón analizar debajo de preview */
+.upload-actions {
+  justify-content: flex-start;
+  margin-top: 0.9rem;
+}
+
+/* Puntito de color para cada tomate */
+.tomato-color-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-right: 0.35rem;
+}
+
+/* Clases con colores más marcados (chips) */
+.tomato-class {
+  font-size: 0.8rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border-width: 1px;
+  border-style: solid;
+  background: #020617;
+}
+
+.tomato-class-ripe {
+  border-color: #22c55e;
+  color: #bbf7d0;
+}
+
+.tomato-class-unripe {
+  border-color: #eab308;
+  color: #fee58a;
+}
+
+.tomato-class-old {
+  border-color: #f97316;
+  color: #fed7aa;
+}
+
+.tomato-class-damaged {
+  border-color: #f97373;
+  color: #fecaca;
+}
+
+/* Modal subtítulo */
+.modal-subtitle {
+  margin-top: 0.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* Historial modal contenido */
+.history-modal-content h2 {
+  margin-top: 0;
+}
