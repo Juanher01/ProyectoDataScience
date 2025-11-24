@@ -28,3 +28,4 @@ def segment_image(image_path: str) -> dict:
     result = resp.json()
     print(f"[segmentation_service] Número de predicciones: {len(result.get('predictions', []))}")
     return result
+

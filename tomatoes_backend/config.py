@@ -4,7 +4,9 @@ Configura constantes del proyecto: rutas, claves, tamaños de imagen, etc.
 """
 
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # ----------------- RUTAS BÁSICAS -----------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -30,5 +32,5 @@ MONGO_DB_NAME = "tomatoes_db"
 MONGO_COLLECTION_NAME = "images"
 
 # ----------------- ROBOFLOW -----------------
-ROBOFLOW_API_KEY = "2QHbV3g6VyPCv3RYAiYi"
-ROBOFLOW_MODEL_ID = "tomatoes-segmentation-2-jxjaj/1"
+ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY")
+ROBOFLOW_MODEL_ID = os.getenv("ROBOFLOW_MODEL_ID")
